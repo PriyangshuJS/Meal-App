@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meal_app/catagory_iteam_screen.dart';
+import 'package:meal_app/screen/catagory_iteam_screen.dart';
 
 class CatalogList extends StatelessWidget {
   final String id;
@@ -8,9 +8,10 @@ class CatalogList extends StatelessWidget {
   const CatalogList(this.id, this.title, this.color, {super.key});
 
   void selectCatagory(BuildContext ctx) {
-    Navigator.of(ctx).push(MaterialPageRoute(builder: (_) {
-      return CatagoryItemScreen(title);
-    }));
+    Navigator.of(ctx).pushNamed(CatagoryItemScreen.routename, arguments: {
+      "id": id,
+      "title": title,
+    });
   }
 
   @override

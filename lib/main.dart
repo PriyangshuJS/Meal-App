@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:meal_app/screen/tabs_screen.dart';
 
-import './catagory_page.dart';
+import 'screen/catagory_iteam_screen.dart';
+import 'screen/catagory_page.dart';
+import '../screen/meal_detail.dart';
 
 void main() {
   runApp(const MealApp());
@@ -14,7 +17,7 @@ class MealApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
+        primarySwatch: Colors.pink,
         canvasColor: const Color.fromRGBO(225, 254, 229, 1),
         fontFamily: 'Raleway',
         textTheme: ThemeData.light().textTheme.copyWith(
@@ -29,7 +32,15 @@ class MealApp extends StatelessWidget {
               ),
             ),
       ),
-      home: const CatagoryPage(),
+      home: const TabsScreen(),
+      //initialRoute: "/",
+      routes: {
+        //"/": (ctx) => const CatagoryPage(), // this is home
+
+        CatagoryItemScreen.routename: (ctx) => CatagoryItemScreen(),
+        //"/catagory-meal": (ctx) => CatagoryItemScreen(),
+        MealDetail.routename: (ctx) => MealDetail(),
+      },
     );
   }
 }
